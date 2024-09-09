@@ -1,7 +1,7 @@
 name: CI/CD pipeline for Function App deployment
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       FUNCTION_APP_NAME:
         description: "The name of the Function App to deploy"
@@ -14,7 +14,7 @@ env:
 
 jobs:
   build:
-    runs-on: [apim-test]
+    runs-on: ubuntu-latest
     outputs:
       FUNCTION_APP_NAME: ${{ steps.set-outputs.outputs.FUNCTION_APP_NAME }}
     steps:
